@@ -18,7 +18,11 @@ public class ShellSort {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String format = dateFormat.format(date);
         System.out.println("排序前时间" + format);
-        shellSort(arr);
+        //交换法
+//        shellSort(arr);
+        //移位法
+        shellSort2(arr);
+
         Date date2 = new Date();
         String format2 = dateFormat.format(date2);
         System.out.println("排序后时间" + format2);
@@ -26,6 +30,31 @@ public class ShellSort {
     }
 
     /**
+     * 移位法
+     * @param arr
+     */
+    private static void shellSort2(int[] arr) {
+
+        for (int grp = arr.length / 2; grp > 0; grp /= 2) {
+            for (int i = grp; i < arr.length; i++) {
+                int j = i;
+                int temp = arr[j];
+                if (arr[j] < arr[j - grp]) {
+                    while (j - grp >= 0 && temp < arr[j - grp]) {
+                        //移动
+                        arr[j] = arr[j - grp];
+                        j -= grp;
+                    }
+                    //当退出while 循环后，就给temp找到了插入的位置
+                    arr[j]=temp;
+                }
+            }
+        }
+
+    }
+
+    /**
+     *  交换法
      *  希尔排序第一种方式，交换位置 。。效率比较低
      * @param arr
      */
