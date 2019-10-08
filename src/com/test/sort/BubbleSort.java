@@ -1,6 +1,8 @@
 package com.test.sort;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 
 /**
@@ -8,7 +10,19 @@ import java.util.Arrays;
  */
 public class BubbleSort {
     public static void main(String[] args) {
-        int arr[] = {2, 3, 4,  5, 6, 8};
+//        int arr[] = {2, 3, 4,  5, 6, 8};
+        int sixe=8;
+
+        int arr[]=new int[sixe];
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i]= (int) (Math.random()*80000);
+        }
+        Date date=new Date();
+        System.out.println(date);
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String format = dateFormat.format(date);
+        System.out.println("排序前时间"+format);
 
         bubblesort(arr);
 
