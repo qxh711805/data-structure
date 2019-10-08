@@ -5,9 +5,9 @@ public class ArrayStackTest {
         ArrayStack arrayStack = new ArrayStack(3);
         arrayStack.push(1);
         arrayStack.display();
-        System.out.println("栈顶的元素"+arrayStack.peek());
+        System.out.println("栈顶的元素" + arrayStack.peek());
         arrayStack.push(2);
-        System.out.println("弹出栈顶的元素"+arrayStack.pop());
+        System.out.println("弹出栈顶的元素" + arrayStack.pop());
         arrayStack.display();
     }
 }
@@ -28,6 +28,7 @@ class ArrayStack {
 
     /**
      * 入栈
+     *
      * @param value
      */
     public void push(long value) {
@@ -60,8 +61,8 @@ class ArrayStack {
             System.out.println("栈元素为空");
             return;
         }
-        for (int i = 0; i <a.length ; i++) {
-            System.out.print(a[i]+"       ");
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i] + "       ");
         }
     }
 
