@@ -24,12 +24,12 @@ public class BubbleSort {
         String format = dateFormat.format(date);
         System.out.println("排序前时间"+format);
 
-        bubblesort(arr);
+        bubbleSort(arr);
 
         System.out.println(Arrays.toString(arr));
     }
 
-    private static void bubblesort(int[] arr) {
+    private static void bubbleSort(int[] arr) {
         int temp = 0;
 
         boolean flag = false;
