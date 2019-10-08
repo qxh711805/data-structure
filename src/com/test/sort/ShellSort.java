@@ -26,11 +26,12 @@ public class ShellSort {
         Date date2 = new Date();
         String format2 = dateFormat.format(date2);
         System.out.println("排序后时间" + format2);
-        System.out.println(Arrays.toString(arr));
+//        System.out.println(Arrays.toString(arr));
     }
 
     /**
      * 移位法
+     *
      * @param arr
      */
     private static void shellSort2(int[] arr) {
@@ -46,7 +47,7 @@ public class ShellSort {
                         j -= grp;
                     }
                     //当退出while 循环后，就给temp找到了插入的位置
-                    arr[j]=temp;
+                    arr[j] = temp;
                 }
             }
         }
@@ -54,8 +55,9 @@ public class ShellSort {
     }
 
     /**
-     *  交换法
-     *  希尔排序第一种方式，交换位置 。。效率比较低
+     * 交换法
+     * 希尔排序第一种方式，交换位置 。。效率比较低
+     *
      * @param arr
      */
     private static void shellSort(int[] arr) {
@@ -63,7 +65,7 @@ public class ShellSort {
 
         // 步长 grp
         for (int grp = arr.length / 2; grp > 0; grp /= 2) {
-            for (int i = grp; i <arr.length; i++) {
+            for (int i = grp; i < arr.length; i++) {
                 for (int j = i - grp; j >= 0; j -= grp) {
                     //当前的数大于 步长5的那个元素就交换
                     if (arr[j] > arr[j + grp]) {
