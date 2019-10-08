@@ -39,7 +39,11 @@ public class InsertSort {
             }
 
 //        当退出while 循环后， 找到要插入的位置
-            arr[insertIndex + 1] = insertValue;
+//            当插入的位置+1不等于i时才执行 交换
+            if (insertIndex + 1 != i) {
+                arr[insertIndex + 1] = insertValue;
+            }
+
         }
 
         /*
