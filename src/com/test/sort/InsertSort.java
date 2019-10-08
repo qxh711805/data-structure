@@ -48,7 +48,7 @@ public class InsertSort {
         int insertIndex=1-1;
 
         while (insertIndex>=0&& insertValue<arr[insertIndex]){
-            arr[insertIndex+1] =insertValue;
+            arr[insertIndex+1] =arr[insertIndex];
             insertIndex--;
         }
 
