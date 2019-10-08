@@ -19,7 +19,7 @@ public class QuickSort {
         Date date2 = new Date();
         String format2 = dateFormat.format(date2);
         System.out.println("排序后时间" + format2);
-//        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr));
     }
 
     private static void quickSort(int[] arr, int left, int right) {
