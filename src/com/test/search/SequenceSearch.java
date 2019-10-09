@@ -6,8 +6,9 @@ package com.test.search;
 public class SequenceSearch {
     public static void main(String[] args) {
         int[] arr = {2, 3, 5, 9, 8, 4};
-        int searchValue = 2;
+        int searchValue = 0;
         int index = sequenceSearch(arr, searchValue);
+        System.out.println(index);
     }
 
     private static int sequenceSearch(int[] arr, int searchValue) {
