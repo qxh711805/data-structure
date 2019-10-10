@@ -21,13 +21,12 @@ public class BinaryTreeDemo {
         //加入到二叉树
         binaryTree.setRoot(root);
 
-        System.out.println("-----------前序遍历-------------");
-        binaryTree.proOrder();
-
-        System.out.println("-----------中序遍历-------------");
-        binaryTree.infixOrder();
-        System.out.println("-----------后序遍历-------------");
-        binaryTree.postOrder();
+//        System.out.println("-----------前序遍历-------------");
+//        binaryTree.proOrder();
+//        System.out.println("-----------中序遍历-------------");
+//        binaryTree.infixOrder();
+//        System.out.println("-----------后序遍历-------------");
+//        binaryTree.postOrder();
 
         System.out.println("-----------前序查找-------------");
         HeroNode proOrderSearch = binaryTree.proOrderSearch(3);
