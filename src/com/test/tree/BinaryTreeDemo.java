@@ -28,17 +28,23 @@ public class BinaryTreeDemo {
 //        System.out.println("-----------后序遍历-------------");
 //        binaryTree.postOrder();
 
-        System.out.println("-----------前序查找-------------");
-        HeroNode proOrderSearch = binaryTree.proOrderSearch(3);
-        System.out.println(proOrderSearch);
+//        System.out.println("-----------前序查找-------------");
+//        HeroNode proOrderSearch = binaryTree.proOrderSearch(3);
+//        System.out.println(proOrderSearch);
+//
+//        System.out.println("-----------中序查找-------------");
+//        HeroNode infixOrderSearch = binaryTree.infixOrderSearch(30);
+//        System.out.println(infixOrderSearch);
+//
+//        System.out.println("-----------后序查找-------------");
+//        HeroNode postOrderSearch = binaryTree.postOrderSearch(3);
+//        System.out.println(postOrderSearch);
 
-        System.out.println("-----------中序查找-------------");
-        HeroNode infixOrderSearch = binaryTree.infixOrderSearch(30);
-        System.out.println(infixOrderSearch);
-
-        System.out.println("-----------后序查找-------------");
-        HeroNode postOrderSearch = binaryTree.postOrderSearch(3);
-        System.out.println(postOrderSearch);
+        System.out.println("----------------删除前------------------");
+        binaryTree.proOrder();
+        binaryTree.deleteNode(3);
+        System.out.println("----------------删除后------------------");
+        binaryTree.proOrder();
     }
 }
 
@@ -48,6 +54,22 @@ class BinaryTree {
     public void setRoot(HeroNode root) {
         this.root = root;
     }
+    //删除节点
+    public void deleteNode(int no){
+        if (root != null) {
+            if (root.getNo()==no){
+                root=null;
+            }
+            else {
+                root.deleteNode(no);
+            }
+        }
+        else {
+            System.out.println("树为空");
+        }
+    }
+
+
 
     //前序遍历
     public void proOrder() {
@@ -245,5 +267,25 @@ class HeroNode {
             return this;
         }
         return resoultNode;
+    }
+
+    //递归删除节点：1.叶子节点就删除该节点 2.如果不是叶子节点，就删除该子树
+    public void deleteNode(int no) {
+        if (this.left!=null&&this.left.no==no) {
+            this.left=null;
+            return;
+        }
+        if (this.right != null && this.right.no==no) {
+            this.right=null;
+            return;
+        }
+        //  需要向左子树递归删除
+        if (this.left!=null){
+            this.left.deleteNode(no);
+        }
+        //  需要向右子树递归删除
+        if (this.right != null) {
+            this.right.deleteNode(no);
+        }
     }
 }
