@@ -5,7 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * 赫夫曼树
+ * 赫夫曼树 ， 也称最优二叉树 ，哈夫曼树
+ *  wpl : 带权路径长度最小
  */
 public class HuffmanTreeDemo {
     public static void main(String[] args) {
