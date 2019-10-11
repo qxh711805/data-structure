@@ -1,11 +1,11 @@
 package com.test.bianrysorttree;
 
 /**
- * 二叉排序树
+ * 二叉排序树 134节
  */
 public class BinarySortTreeDemo {
     public static void main(String[] args) {
-        int[] arr = {7,3,10,12,5,1,9,0};
+        int[] arr = {7, 3, 10};
         BinarySortTree binarySortTree = new BinarySortTree();
 
         //循环添加二叉树
@@ -16,6 +16,8 @@ public class BinarySortTreeDemo {
         binarySortTree.infixOrder();
         //测试 1. 删除叶子节点
         binarySortTree.deleteNode(7);
+        binarySortTree.deleteNode(10);
+        binarySortTree.deleteNode(3);
         //测试 2. 删除只有一颗子树的节点
         //测试 2. 删除有 2 颗子树的节点
         System.out.println("-------------删除后------------");
@@ -49,34 +51,40 @@ class BinarySortTree {
                 //判断targetNode是父节点，还是左子节点，还是右子节点
                 if (targetParent.left != null && targetParent.left.value == value) {
                     targetParent.left = null;
-                }
-                else if (targetParent.right != null && targetParent.right.value == value) {
+                } else if (targetParent.right != null && targetParent.right.value == value) {
                     targetParent.right = null;
                 }
             }
             // 2. 如果要删除2 颗子树 的节点
-            else if (targetNode.left!=null&& targetNode.right!=null){
+            else if (targetNode.left != null && targetNode.right != null) {
                 //返回的最小值
                 int minValue = deleteRightTreeMin(targetNode.right);
-                targetNode.value=minValue;
+                targetNode.value = minValue;
             }
             // 3. 如果要删除 1 颗子树 的节点
             else {
-                if (targetNode.left!=null){
-                    if (targetParent.left.value==value){
-                        targetParent.left=targetNode.left;
-                    }
-                    else {
-                        targetParent.right=targetNode.left;
+                //注意这里的 bug ，
+                if (targetNode.left != null) {
+                    if (targetParent != null) {
+                        if (targetParent.left.value == value) {
+                            targetParent.left = targetNode.left;
+                        } else {
+                            targetParent.right = targetNode.left;
+                        }
+                    } else {
+                        root = targetNode.left;
                     }
                 }
                 //要删除的节点有右子节点
                 else {
-                    if (targetParent.left.value==value){
-                        targetParent.left=targetNode.right;
-                    }
-                    else {
-                        targetParent.right=targetNode.right;
+                    if (targetParent != null) {
+                        if (targetParent.left.value == value) {
+                            targetParent.left = targetNode.right;
+                        } else {
+                            targetParent.right = targetNode.right;
+                        }
+                    } else {
+                        root = targetNode.right;
                     }
                 }
             }
@@ -84,7 +92,6 @@ class BinarySortTree {
     }
 
     /**
-     *
      * @param node
      * @return 返回的是最小的值
      */
@@ -192,8 +199,7 @@ class Node {
             //向右子树递归查找
             else if (value >= this.value && this.right != null) {
                 return this.right.searchParent(value);
-            }
-            else {
+            } else {
                 return null;
             }
         }
