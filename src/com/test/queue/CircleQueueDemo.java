@@ -6,7 +6,7 @@ package com.test.queue;
 public class CircleQueueDemo {
     public static void main(String[] args) {
         //设置的4 ，其队列的最大有效队列为 3
-        CircleQueue circleQueue=new CircleQueue(4);
+        CircleQueue circleQueue = new CircleQueue(4);
         circleQueue.add(1);
         circleQueue.add(2);
         circleQueue.add(3);
@@ -23,7 +23,8 @@ public class CircleQueueDemo {
         circleQueue.list();
     }
 }
-class CircleQueue{
+
+class CircleQueue {
     //最大容量
     private int maxSize;
     //队列头
@@ -43,7 +44,7 @@ class CircleQueue{
     }
 
     //获取头
-    public int getQueue(){
+    public int getQueue() {
         if (isEmpty()) {
             throw new RuntimeException("队列为空，没有数据");
         }
@@ -51,12 +52,12 @@ class CircleQueue{
         //1. 先将front 对应的值保留到临时变量
         //2. 将front 后移
         //3.
-        int value=arr[front];
-        front=(front+1)%maxSize;
+        int value = arr[front];
+        front = (front + 1) % maxSize;
         return value;
     }
 
-    public void list(){
+    public void list() {
         System.out.println("------------排序-----------");
         if (isEmpty()) {
             System.out.println("队列为空");
@@ -67,34 +68,35 @@ class CircleQueue{
         }
     }
 
-    public int headQuere(){
+    public int headQuere() {
         if (isEmpty()) {
             throw new RuntimeException("队列为空");
         }
         return arr[front];
     }
 
-    public int size(){
+    public int size() {
         return (rear + maxSize - front) % maxSize;
     }
 
-    public void add(int value){
+    public void add(int value) {
         if (isFull()) {
             System.out.println("队列已满");
             return;
         }
         //直接将数据添加
-        arr[rear] =value;
+        arr[rear] = value;
         //将 rear 后移
-        rear = (rear+1)%maxSize;
+        rear = (rear + 1) % maxSize;
     }
 
     //判断是否空
-    public boolean isEmpty(){
-        return rear==front;
+    public boolean isEmpty() {
+        return rear == front;
     }
+
     //判断是否满
-    public boolean isFull(){
+    public boolean isFull() {
         return (rear + 1) % maxSize == front;
     }
 }
