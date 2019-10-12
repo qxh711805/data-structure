@@ -1,7 +1,7 @@
 package com.test.queue;
 
 /**
- * 环形队列
+ * 环形队列 14 - 16
  */
 public class CircleQueueDemo {
     public static void main(String[] args) {
