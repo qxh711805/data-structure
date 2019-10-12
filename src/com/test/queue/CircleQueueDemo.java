@@ -42,6 +42,7 @@ class CircleQueue{
         rear = 0;
     }
 
+    //获取头
     public int getQueue(){
         if (isEmpty()) {
             throw new RuntimeException("队列为空，没有数据");
