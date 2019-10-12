@@ -24,12 +24,19 @@ public class CircleQueueDemo {
     }
 }
 
+/**
+ * 1.front 指向队列的第一个元素 ，也就是arr[front] 是第一个元素
+ * 2.rear  指向队列的最后一个元素的后一个位置.因为希望空出一个空间作为一个约定，
+ * 3. 队列满的条件 (rear + 1) % maxSize == front;
+ * 4. 空：rear == front;
+ * 5. 队列中有效数据的个数 (rear + maxSize - front)%maxSize
+ */
 class CircleQueue {
     //最大容量
     private int maxSize;
-    //队列头
+    //含义： 变化，front 指向队列的第一个元素 ，也就是arr[front] 是第一个元素
     private int front;
-    //队列尾
+    //队列尾： 含义：rear  指向队列的最后一个元素的后一个位置.因为希望空出一个空间作为一个约定，
     private int rear;
     //该数组用于存放数据
     private int[] arr;
