@@ -2,6 +2,7 @@ package com.test.queue;
 
 /**
  * 数组模拟队列 , 单项队列
+ *  先进先出
  */
 public class ArrayQueueDemo {
     public static void main(String[] args) {
